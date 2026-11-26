@@ -1,0 +1,106 @@
+[gd_scene load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://scripts/world_map.gd" id="1_map"]
+[ext_resource type="Texture2D" path="res://assets/backgrounds/bg_forest.png" id="2_bg"]
+
+[node name="WorldMap" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_map")
+
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_bg")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="TitleLabel" type="Label" parent="."]
+layout_mode = 1
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -500.0
+offset_top = 40.0
+offset_right = 500.0
+offset_bottom = 120.0
+grow_horizontal = 2
+layout_direction = 2
+theme_override_font_sizes/font_size = 52
+text = "خريطة العوالم"
+horizontal_alignment = 1
+
+[node name="HeroLabel" type="Label" parent="."]
+layout_mode = 1
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -500.0
+offset_top = 125.0
+offset_right = 500.0
+offset_bottom = 175.0
+grow_horizontal = 2
+layout_direction = 2
+theme_override_font_sizes/font_size = 28
+text = "البطل: أرنوب"
+horizontal_alignment = 1
+
+[node name="WorldList" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -320.0
+offset_top = -210.0
+offset_right = 320.0
+offset_bottom = 230.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 14
+
+[node name="ForestButton" type="Button" parent="WorldList"]
+custom_minimum_size = Vector2(0, 72)
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "الغابة - المرحلة 1 (العب دلوقتي)"
+
+[node name="SeaButton" type="Button" parent="WorldList"]
+custom_minimum_size = Vector2(0, 72)
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "البحر (قريبًا)"
+
+[node name="DesertButton" type="Button" parent="WorldList"]
+custom_minimum_size = Vector2(0, 72)
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "الصحرا (قريبًا)"
+
+[node name="SpaceButton" type="Button" parent="WorldList"]
+custom_minimum_size = Vector2(0, 72)
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "الفضاء (قريبًا)"
+
+[node name="CastleButton" type="Button" parent="WorldList"]
+custom_minimum_size = Vector2(0, 72)
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "القلعة (قريبًا)"
+
+[node name="BackButton" type="Button" parent="."]
+custom_minimum_size = Vector2(220, 64)
+layout_mode = 1
+offset_left = 30.0
+offset_top = 30.0
+offset_right = 250.0
+offset_bottom = 94.0
+theme_override_font_sizes/font_size = 28
+text = "رجوع"

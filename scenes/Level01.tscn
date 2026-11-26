@@ -1,0 +1,295 @@
+[gd_scene load_steps=14 format=3]
+
+[ext_resource type="Script" path="res://scripts/level01.gd" id="1_level"]
+[ext_resource type="Script" path="res://scripts/hud.gd" id="2_hud"]
+[ext_resource type="PackedScene" path="res://scenes/Player.tscn" id="3_player"]
+[ext_resource type="PackedScene" path="res://scenes/Star.tscn" id="4_star"]
+[ext_resource type="PackedScene" path="res://scenes/Treasure.tscn" id="5_treasure"]
+[ext_resource type="PackedScene" path="res://scenes/QuizPopup.tscn" id="6_quiz"]
+[ext_resource type="PackedScene" path="res://scenes/WinScreen.tscn" id="7_win"]
+[ext_resource type="Texture2D" path="res://assets/backgrounds/bg_forest.png" id="8_bg"]
+[ext_resource type="Texture2D" path="res://assets/sprites/tree.png" id="9_tree"]
+[ext_resource type="Texture2D" path="res://assets/sprites/cloud.png" id="10_cloud"]
+
+[sub_resource type="RectangleShape2D" id="GroundShape"]
+size = Vector2(1280, 80)
+
+[sub_resource type="RectangleShape2D" id="FloatShape220"]
+size = Vector2(220, 32)
+
+[sub_resource type="RectangleShape2D" id="FloatShape240"]
+size = Vector2(240, 32)
+
+[node name="Level01" type="Node2D"]
+script = ExtResource("1_level")
+
+[node name="Background1" type="Sprite2D" parent="."]
+z_index = -10
+position = Vector2(640, 360)
+texture = ExtResource("8_bg")
+
+[node name="Background2" type="Sprite2D" parent="."]
+z_index = -10
+position = Vector2(1920, 360)
+texture = ExtResource("8_bg")
+
+[node name="Background3" type="Sprite2D" parent="."]
+z_index = -10
+position = Vector2(3200, 360)
+texture = ExtResource("8_bg")
+
+[node name="Cloud1" type="Sprite2D" parent="."]
+z_index = -5
+position = Vector2(400, 110)
+texture = ExtResource("10_cloud")
+
+[node name="Cloud2" type="Sprite2D" parent="."]
+z_index = -5
+position = Vector2(1500, 90)
+texture = ExtResource("10_cloud")
+
+[node name="Cloud3" type="Sprite2D" parent="."]
+z_index = -5
+position = Vector2(2700, 120)
+texture = ExtResource("10_cloud")
+
+[node name="Tree1" type="Sprite2D" parent="."]
+z_index = -2
+position = Vector2(300, 530)
+texture = ExtResource("9_tree")
+
+[node name="Tree2" type="Sprite2D" parent="."]
+z_index = -2
+position = Vector2(1100, 530)
+texture = ExtResource("9_tree")
+
+[node name="Tree3" type="Sprite2D" parent="."]
+z_index = -2
+position = Vector2(1700, 530)
+texture = ExtResource("9_tree")
+
+[node name="Tree4" type="Sprite2D" parent="."]
+z_index = -2
+position = Vector2(2600, 530)
+texture = ExtResource("9_tree")
+
+[node name="Tree5" type="Sprite2D" parent="."]
+z_index = -2
+position = Vector2(3450, 530)
+texture = ExtResource("9_tree")
+
+[node name="Platforms" type="Node2D" parent="."]
+
+[node name="GroundA" type="StaticBody2D" parent="Platforms"]
+position = Vector2(640, 680)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platforms/GroundA"]
+shape = SubResource("GroundShape")
+
+[node name="Visual" type="Polygon2D" parent="Platforms/GroundA"]
+color = Color(0.4, 0.78, 0.38, 1)
+polygon = PackedVector2Array(-640, -40, 640, -40, 640, 40, -640, 40)
+
+[node name="GroundB" type="StaticBody2D" parent="Platforms"]
+position = Vector2(1920, 680)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platforms/GroundB"]
+shape = SubResource("GroundShape")
+
+[node name="Visual" type="Polygon2D" parent="Platforms/GroundB"]
+color = Color(0.4, 0.78, 0.38, 1)
+polygon = PackedVector2Array(-640, -40, 640, -40, 640, 40, -640, 40)
+
+[node name="GroundC" type="StaticBody2D" parent="Platforms"]
+position = Vector2(3200, 680)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platforms/GroundC"]
+shape = SubResource("GroundShape")
+
+[node name="Visual" type="Polygon2D" parent="Platforms/GroundC"]
+color = Color(0.4, 0.78, 0.38, 1)
+polygon = PackedVector2Array(-640, -40, 640, -40, 640, 40, -640, 40)
+
+[node name="Float1" type="StaticBody2D" parent="Platforms"]
+position = Vector2(500, 520)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platforms/Float1"]
+shape = SubResource("FloatShape220")
+
+[node name="Visual" type="Polygon2D" parent="Platforms/Float1"]
+color = Color(0.55, 0.85, 0.45, 1)
+polygon = PackedVector2Array(-110, -16, 110, -16, 110, 16, -110, 16)
+
+[node name="Float2" type="StaticBody2D" parent="Platforms"]
+position = Vector2(900, 440)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platforms/Float2"]
+shape = SubResource("FloatShape220")
+
+[node name="Visual" type="Polygon2D" parent="Platforms/Float2"]
+color = Color(0.55, 0.85, 0.45, 1)
+polygon = PackedVector2Array(-110, -16, 110, -16, 110, 16, -110, 16)
+
+[node name="Float3" type="StaticBody2D" parent="Platforms"]
+position = Vector2(1400, 520)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platforms/Float3"]
+shape = SubResource("FloatShape240")
+
+[node name="Visual" type="Polygon2D" parent="Platforms/Float3"]
+color = Color(0.55, 0.85, 0.45, 1)
+polygon = PackedVector2Array(-120, -16, 120, -16, 120, 16, -120, 16)
+
+[node name="Float4" type="StaticBody2D" parent="Platforms"]
+position = Vector2(1850, 420)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platforms/Float4"]
+shape = SubResource("FloatShape220")
+
+[node name="Visual" type="Polygon2D" parent="Platforms/Float4"]
+color = Color(0.55, 0.85, 0.45, 1)
+polygon = PackedVector2Array(-110, -16, 110, -16, 110, 16, -110, 16)
+
+[node name="Float5" type="StaticBody2D" parent="Platforms"]
+position = Vector2(2350, 520)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platforms/Float5"]
+shape = SubResource("FloatShape240")
+
+[node name="Visual" type="Polygon2D" parent="Platforms/Float5"]
+color = Color(0.55, 0.85, 0.45, 1)
+polygon = PackedVector2Array(-120, -16, 120, -16, 120, 16, -120, 16)
+
+[node name="Float6" type="StaticBody2D" parent="Platforms"]
+position = Vector2(2850, 430)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platforms/Float6"]
+shape = SubResource("FloatShape220")
+
+[node name="Visual" type="Polygon2D" parent="Platforms/Float6"]
+color = Color(0.55, 0.85, 0.45, 1)
+polygon = PackedVector2Array(-110, -16, 110, -16, 110, 16, -110, 16)
+
+[node name="Float7" type="StaticBody2D" parent="Platforms"]
+position = Vector2(3300, 520)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platforms/Float7"]
+shape = SubResource("FloatShape240")
+
+[node name="Visual" type="Polygon2D" parent="Platforms/Float7"]
+color = Color(0.55, 0.85, 0.45, 1)
+polygon = PackedVector2Array(-120, -16, 120, -16, 120, 16, -120, 16)
+
+[node name="Player" parent="." instance=ExtResource("3_player")]
+position = Vector2(150, 640)
+
+[node name="Star1" parent="." instance=ExtResource("4_star")]
+position = Vector2(500, 460)
+
+[node name="Star2" parent="." instance=ExtResource("4_star")]
+position = Vector2(900, 380)
+
+[node name="Star3" parent="." instance=ExtResource("4_star")]
+position = Vector2(1400, 460)
+
+[node name="Star4" parent="." instance=ExtResource("4_star")]
+position = Vector2(2350, 460)
+
+[node name="Star5" parent="." instance=ExtResource("4_star")]
+position = Vector2(3300, 460)
+
+[node name="Treasure" parent="." instance=ExtResource("5_treasure")]
+position = Vector2(3650, 595)
+
+[node name="HUD" type="CanvasLayer" parent="."]
+script = ExtResource("2_hud")
+
+[node name="StarLabel" type="Label" parent="HUD"]
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -430.0
+offset_top = 18.0
+offset_right = -20.0
+offset_bottom = 68.0
+grow_horizontal = 0
+layout_direction = 2
+theme_override_font_sizes/font_size = 34
+text = "النجوم: 0 / 5"
+horizontal_alignment = 2
+
+[node name="HeroLabel" type="Label" parent="HUD"]
+offset_left = 20.0
+offset_top = 18.0
+offset_right = 320.0
+offset_bottom = 68.0
+layout_direction = 2
+theme_override_font_sizes/font_size = 30
+text = "أرنوب"
+
+[node name="MessageLabel" type="Label" parent="HUD"]
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -450.0
+offset_top = 70.0
+offset_right = 450.0
+offset_bottom = 120.0
+grow_horizontal = 2
+layout_direction = 2
+theme_override_font_sizes/font_size = 30
+text = "اجمع النجوم ووصل للكنز!"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="MenuButton" type="Button" parent="HUD"]
+custom_minimum_size = Vector2(180, 56)
+offset_left = 20.0
+offset_top = 80.0
+offset_right = 200.0
+offset_bottom = 136.0
+theme_override_font_sizes/font_size = 26
+text = "الخريطة"
+
+[node name="TouchControls" type="CanvasLayer" parent="."]
+
+[node name="LeftButton" type="Button" parent="TouchControls"]
+modulate = Color(1, 1, 1, 0.9)
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 20.0
+offset_top = -115.0
+offset_right = 175.0
+offset_bottom = -20.0
+grow_vertical = 0
+theme_override_font_sizes/font_size = 30
+text = "يسار"
+
+[node name="RightButton" type="Button" parent="TouchControls"]
+modulate = Color(1, 1, 1, 0.9)
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 195.0
+offset_top = -115.0
+offset_right = 350.0
+offset_bottom = -20.0
+grow_vertical = 0
+theme_override_font_sizes/font_size = 30
+text = "يمين"
+
+[node name="JumpButton" type="Button" parent="TouchControls"]
+modulate = Color(1, 1, 1, 0.9)
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -195.0
+offset_top = -115.0
+offset_right = -20.0
+offset_bottom = -20.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_font_sizes/font_size = 32
+text = "اقفز"
+
+[node name="QuizPopup" parent="." instance=ExtResource("6_quiz")]
+
+[node name="WinScreen" parent="." instance=ExtResource("7_win")]

@@ -1,0 +1,21 @@
+# Godot 4+ specific ignores
+.godot/
+.nomedia
+
+# Godot-specific ignores
+.import/
+export.cfg
+export_credentials.cfg
+
+# Android build outputs and signing material (never commit keystores)
+builds/
+android/
+*.keystore
+*.jks
+*.aab
+*.apk
+*.apks
+
+# OS / editor
+.DS_Store
+*.tmp
